@@ -1,0 +1,8 @@
+{
+  "name": "Gestión Financiera Personal",
+  "description": "Aplicación web de finanzas personales para administrar ingresos, gastos, presupuesto mensual, ahorros, metas, tasa oficial BCV (USD/VES) y estadísticas con respaldo local JSON.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

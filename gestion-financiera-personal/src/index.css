@@ -1,0 +1,881 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *, [data-theme^="dark"], [data-theme^="dark"] *));
+
+:root,
+[data-theme="rose"] {
+  color-scheme: light;
+  --pink-primary: #C86D85;
+  --pink-light: #F6E6EA;
+  --pink-soft: #E8C5D0;
+  --pink-dark: #9B475E;
+  --rose-gold: #B76E79;
+  --lavender-soft: #EAE4F2;
+  --lavender-accent: #8A79A6;
+  --lavender-dark: #715F8E;
+  --lavender-text: #62517D;
+  --background: #FDFBF9;
+  --surface: #FFFFFF;
+  --surface-subtle: #FAF5F6;
+  --surface-hover: #F3E4E8;
+  --border-hairline: #EFE3E6;
+  --border-divider: #F6ECEF;
+  --border-input: #E5D4D8;
+  --text-primary: #2D2226;
+  --text-secondary: #756369;
+  --income-color: #2E8B6E;
+  --income-bg: #EBF5F1;
+  --expense-color: #D45B72;
+  --expense-bg: #FCEEEF;
+  --expense-border: #F3C5CE;
+  --expense-text-dark: #9B2C44;
+  --savings-color: #8A79A6;
+  --savings-bg: #F2EFF8;
+  --warning-color: #C98A3B;
+}
+
+[data-theme="lavender"] {
+  color-scheme: light;
+  --pink-primary: #7C3AED;
+  --pink-light: #EDE9FE;
+  --pink-soft: #C4B5FD;
+  --pink-dark: #5B21B6;
+  --rose-gold: #9333EA;
+  --lavender-soft: #FCE7F3;
+  --lavender-accent: #C026D3;
+  --lavender-dark: #A21CAF;
+  --lavender-text: #86198F;
+  --background: #FAF8FF;
+  --surface: #FFFFFF;
+  --surface-subtle: #F4F0FD;
+  --surface-hover: #EBE4FA;
+  --border-hairline: #E4DCF5;
+  --border-divider: #EFEAFB;
+  --border-input: #D8CCF0;
+  --text-primary: #1E1633;
+  --text-secondary: #62567A;
+  --income-color: #059669;
+  --income-bg: #ECFDF5;
+  --expense-color: #E11D48;
+  --expense-bg: #FFF1F2;
+  --expense-border: #FECDD3;
+  --expense-text-dark: #9F1239;
+  --savings-color: #7C3AED;
+  --savings-bg: #F5F3FF;
+  --warning-color: #D97706;
+}
+
+[data-theme="emerald"] {
+  color-scheme: light;
+  --pink-primary: #0D9488;
+  --pink-light: #CCFBF1;
+  --pink-soft: #99F6E4;
+  --pink-dark: #0F766E;
+  --rose-gold: #059669;
+  --lavender-soft: #E0F2FE;
+  --lavender-accent: #0284C7;
+  --lavender-dark: #0369A1;
+  --lavender-text: #075985;
+  --background: #F7FBF9;
+  --surface: #FFFFFF;
+  --surface-subtle: #EEF7F4;
+  --surface-hover: #E0F0EB;
+  --border-hairline: #D7EBE4;
+  --border-divider: #E6F4EF;
+  --border-input: #C4DFD6;
+  --text-primary: #112A24;
+  --text-secondary: #4D6A62;
+  --income-color: #059669;
+  --income-bg: #ECFDF5;
+  --expense-color: #E11D48;
+  --expense-bg: #FFF1F2;
+  --expense-border: #FECDD3;
+  --expense-text-dark: #9F1239;
+  --savings-color: #0284C7;
+  --savings-bg: #F0F9FF;
+  --warning-color: #D97706;
+}
+
+[data-theme="peach"] {
+  color-scheme: light;
+  --pink-primary: #E06D53;
+  --pink-light: #FDECE8;
+  --pink-soft: #F9C6BA;
+  --pink-dark: #B94E36;
+  --rose-gold: #C97A63;
+  --lavender-soft: #FEF3C7;
+  --lavender-accent: #D97706;
+  --lavender-dark: #B45309;
+  --lavender-text: #92400E;
+  --background: #FFFDFB;
+  --surface: #FFFFFF;
+  --surface-subtle: #FDF6F2;
+  --surface-hover: #F9EBE3;
+  --border-hairline: #F2DFD6;
+  --border-divider: #F8EDE7;
+  --border-input: #E6CFC3;
+  --text-primary: #2C1E19;
+  --text-secondary: #785D53;
+  --income-color: #2E8B6E;
+  --income-bg: #EBF5F1;
+  --expense-color: #DC2626;
+  --expense-bg: #FEF2F2;
+  --expense-border: #FECACA;
+  --expense-text-dark: #991B1B;
+  --savings-color: #D97706;
+  --savings-bg: #FFFBEB;
+  --warning-color: #D97706;
+}
+
+[data-theme="masculine"] {
+  color-scheme: light;
+  --pink-primary: #1E40AF;
+  --pink-light: #DBEAFE;
+  --pink-soft: #93C5FD;
+  --pink-dark: #1E3A8A;
+  --rose-gold: #0369A1;
+  --lavender-soft: #E0E7FF;
+  --lavender-accent: #4338CA;
+  --lavender-dark: #3730A3;
+  --lavender-text: #312E81;
+  --background: #F4F6F9;
+  --surface: #FFFFFF;
+  --surface-subtle: #EDF1F7;
+  --surface-hover: #E2E8F0;
+  --border-hairline: #DCE3ED;
+  --border-divider: #E8EEF5;
+  --border-input: #CBD5E1;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --income-color: #059669;
+  --income-bg: #ECFDF5;
+  --expense-color: #E11D48;
+  --expense-bg: #FFF1F2;
+  --expense-border: #FECDD3;
+  --expense-text-dark: #9F1239;
+  --savings-color: #4338CA;
+  --savings-bg: #EEF2FF;
+  --warning-color: #D97706;
+}
+
+[data-theme="dark-pro"] {
+  color-scheme: dark;
+  /* Acentos vivos estilo Linear/Raycast sobre fondo negro carbono */
+  --pink-primary: #7C5CFC;
+  --pink-light: #241F3D;
+  --pink-soft: #A78BFA;
+  --pink-dark: #6D4AFF;
+  --rose-gold: #38BDF8;
+  --lavender-soft: #182928;
+  --lavender-accent: #10B981;
+  --lavender-dark: #059669;
+  --lavender-text: #A7F3D0;
+  /* Capa 0: Fondo negro puro brutal */
+  --background: #050507;
+  /* Capa 1: Tarjetas y paneles en grafito oscuro (no negro plano) */
+  --surface: #131318;
+  --surface-subtle: #1B1B22;
+  --surface-hover: #24242E;
+  --border-hairline: #2A2A35;
+  --border-divider: #1F1F28;
+  --border-input: #363644;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A7A7B4;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #A78BFA;
+  --savings-bg: #221C3A;
+  --warning-color: #FBBF24;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --pink-primary: #6366F1;
+  --pink-light: #1F223D;
+  --pink-soft: #818CF8;
+  --pink-dark: #4F46E5;
+  --rose-gold: #38BDF8;
+  --lavender-soft: #1F2438;
+  --lavender-accent: #0EA5E9;
+  --lavender-dark: #0284C7;
+  --lavender-text: #BAE6FD;
+  /* Capa 0: Fondo negro carbono */
+  --background: #060608;
+  /* Capa 1: Tarjetas en grafito satinado */
+  --surface: #131419;
+  --surface-subtle: #1B1C24;
+  --surface-hover: #252630;
+  --border-hairline: #2B2C38;
+  --border-divider: #20212B;
+  --border-input: #373847;
+  --text-primary: #F8FAFC;
+  --text-secondary: #A3A8B8;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #818CF8;
+  --savings-bg: #1E203B;
+  --warning-color: #FBBF24;
+}
+
+[data-theme="dark-rose"] {
+  color-scheme: dark;
+  --pink-primary: #E17A93;
+  --pink-light: #2A1920;
+  --pink-soft: #F4728A;
+  --pink-dark: #C8647D;
+  --rose-gold: #E5A19C;
+  --lavender-soft: #241D2B;
+  --lavender-accent: #A594C4;
+  --lavender-dark: #8A79A6;
+  --lavender-text: #E2DCF0;
+  --background: #060607;
+  --surface: #131114;
+  --surface-subtle: #1C191D;
+  --surface-hover: #262228;
+  --border-hairline: #2E2830;
+  --border-divider: #211D23;
+  --border-input: #3D3440;
+  --text-primary: #F7F4F5;
+  --text-secondary: #B0A6AB;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #F4728A;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FAD1D8;
+  --savings-color: #B4A2D4;
+  --savings-bg: #221C2E;
+  --warning-color: #EAB308;
+}
+
+[data-theme="dark-purple"] {
+  color-scheme: dark;
+  --pink-primary: #A855F7;
+  --pink-light: #271836;
+  --pink-soft: #C084FC;
+  --pink-dark: #9333EA;
+  --rose-gold: #E879F9;
+  --lavender-soft: #2B1933;
+  --lavender-accent: #EC4899;
+  --lavender-dark: #DB2777;
+  --lavender-text: #FBCFE8;
+  --background: #060608;
+  --surface: #131118;
+  --surface-subtle: #1B1822;
+  --surface-hover: #25212E;
+  --border-hairline: #2E2938;
+  --border-divider: #211E29;
+  --border-input: #3D364C;
+  --text-primary: #F5F3F7;
+  --text-secondary: #ACA6B8;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #C084FC;
+  --savings-bg: #261642;
+  --warning-color: #FBBF24;
+}
+
+[data-theme="dark-emerald"] {
+  color-scheme: dark;
+  --pink-primary: #10B981;
+  --pink-light: #112A22;
+  --pink-soft: #34D399;
+  --pink-dark: #059669;
+  --rose-gold: #2DD4BF;
+  --lavender-soft: #152724;
+  --lavender-accent: #14B8A6;
+  --lavender-dark: #0D9488;
+  --lavender-text: #99F6E4;
+  --background: #050606;
+  --surface: #111514;
+  --surface-subtle: #181E1C;
+  --surface-hover: #212926;
+  --border-hairline: #28322F;
+  --border-divider: #1D2422;
+  --border-input: #34423E;
+  --text-primary: #F2F7F5;
+  --text-secondary: #A3B2AE;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #2DD4BF;
+  --savings-bg: #10302B;
+  --warning-color: #FBBF24;
+}
+
+[data-theme="dark-gold"] {
+  color-scheme: dark;
+  --pink-primary: #E5A93B;
+  --pink-light: #2B2214;
+  --pink-soft: #F59E0B;
+  --pink-dark: #C48A20;
+  --rose-gold: #FBBF24;
+  --lavender-soft: #282118;
+  --lavender-accent: #EA580C;
+  --lavender-dark: #C2410C;
+  --lavender-text: #FED7AA;
+  --background: #060605;
+  --surface: #141311;
+  --surface-subtle: #1D1B18;
+  --surface-hover: #272420;
+  --border-hairline: #302C26;
+  --border-divider: #221F1B;
+  --border-input: #403A32;
+  --text-primary: #FAF7F2;
+  --text-secondary: #B5ADA2;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #FBBF24;
+  --savings-bg: #30230B;
+  --warning-color: #F59E0B;
+}
+
+/* ==========================================================================
+ * 4 NUEVAS PAREJAS DE TEMAS FINANCIEROS DE ALTA GAMA (MODO CLARO & OSCURO)
+ * 1. Neo-Bank / Futurista: Cobalto & Cian Ártico / Abismo & Cian Eléctrico
+ * 2. Wealth Management / Lujo: Marfil & Borgoña Imperial / Medianoche & Oro Mate
+ * 3. Eco-Finance / Sostenibilidad: Hueso & Salvia Nórdica / Bosque Nocturno & Salvia
+ * 4. Minimalista Corporativo: Alabastro & Bermellón Suizo / Obsidiana & Naranja Terminal
+ * ========================================================================== */
+
+/* 1A. Neo-Bank Claro: Cobalto & Cian Ártico */
+[data-theme="neobank"] {
+  color-scheme: light;
+  --pink-primary: #0052FF;
+  --pink-light: #E0EBFF;
+  --pink-soft: #99BAFF;
+  --pink-dark: #003ECF;
+  --rose-gold: #0891B2;
+  --lavender-soft: #E0F7FA;
+  --lavender-accent: #0891B2;
+  --lavender-dark: #0E7490;
+  --lavender-text: #155E75;
+  --background: #F4F7FB;
+  --surface: #FFFFFF;
+  --surface-subtle: #EBF1F8;
+  --surface-hover: #DFE8F3;
+  --border-hairline: #D5E0EE;
+  --border-divider: #E3ECF6;
+  --border-input: #C2D1E5;
+  --text-primary: #091124;
+  --text-secondary: #475569;
+  --income-color: #059669;
+  --income-bg: #ECFDF5;
+  --expense-color: #E11D48;
+  --expense-bg: #FFF1F2;
+  --expense-border: #FECDD3;
+  --expense-text-dark: #9F1239;
+  --savings-color: #0891B2;
+  --savings-bg: #ECFEFF;
+  --warning-color: #D97706;
+}
+
+/* 1B. Neo-Bank Oscuro: Abismo & Cian Eléctrico */
+[data-theme="dark-neobank"] {
+  color-scheme: dark;
+  --pink-primary: #06B6D4;
+  --pink-light: #0B2938;
+  --pink-soft: #22D3EE;
+  --pink-dark: #0891B2;
+  --rose-gold: #38BDF8;
+  --lavender-soft: #171D3B;
+  --lavender-accent: #6366F1;
+  --lavender-dark: #4F46E5;
+  --lavender-text: #C7D2FE;
+  --background: #04070D;
+  --surface: #0D131F;
+  --surface-subtle: #141D2E;
+  --surface-hover: #1C283E;
+  --border-hairline: #23324C;
+  --border-divider: #182336;
+  --border-input: #2E4161;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #22D3EE;
+  --savings-bg: #082F49;
+  --warning-color: #FBBF24;
+}
+
+/* 2A. Wealth Management Claro: Marfil & Borgoña Imperial */
+[data-theme="wealth"] {
+  color-scheme: light;
+  --pink-primary: #7F1D3A;
+  --pink-light: #F7E8EC;
+  --pink-soft: #E5B8C5;
+  --pink-dark: #5E1329;
+  --rose-gold: #9A6E27;
+  --lavender-soft: #F7F0E1;
+  --lavender-accent: #9A6E27;
+  --lavender-dark: #7C5519;
+  --lavender-text: #634210;
+  --background: #FAF6F0;
+  --surface: #FFFFFF;
+  --surface-subtle: #F3EDE2;
+  --surface-hover: #E9E0D1;
+  --border-hairline: #E2D7C5;
+  --border-divider: #EDE5D7;
+  --border-input: #D4C5AF;
+  --text-primary: #1F1619;
+  --text-secondary: #65564D;
+  --income-color: #15803D;
+  --income-bg: #F0FDF4;
+  --expense-color: #B91C1C;
+  --expense-bg: #FEF2F2;
+  --expense-border: #FECACA;
+  --expense-text-dark: #7F1D1D;
+  --savings-color: #9A6E27;
+  --savings-bg: #FEFCE8;
+  --warning-color: #B45309;
+}
+
+/* 2B. Wealth Management Oscuro: Medianoche & Oro Mate */
+[data-theme="dark-wealth"] {
+  color-scheme: dark;
+  --pink-primary: #D4AF37;
+  --pink-light: #2A2415;
+  --pink-soft: #E6C762;
+  --pink-dark: #B59021;
+  --rose-gold: #E15B76;
+  --lavender-soft: #2A1620;
+  --lavender-accent: #E15B76;
+  --lavender-dark: #BE123C;
+  --lavender-text: #FECDD3;
+  --background: #050811;
+  --surface: #0E1422;
+  --surface-subtle: #161E31;
+  --surface-hover: #1F2A42;
+  --border-hairline: #273452;
+  --border-divider: #1B253B;
+  --border-input: #344569;
+  --text-primary: #F9F6F0;
+  --text-secondary: #A3AEB9;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #E6C762;
+  --savings-bg: #2B230F;
+  --warning-color: #F59E0B;
+}
+
+/* 3A. Eco-Finance Claro: Hueso & Salvia Nórdica */
+[data-theme="eco"] {
+  color-scheme: light;
+  --pink-primary: #2D6A4F;
+  --pink-light: #E2F0E8;
+  --pink-soft: #B7DEC8;
+  --pink-dark: #1B4332;
+  --rose-gold: #9C6644;
+  --lavender-soft: #F3EAE2;
+  --lavender-accent: #9C6644;
+  --lavender-dark: #7F4F24;
+  --lavender-text: #653D1A;
+  --background: #F6F5F0;
+  --surface: #FFFFFF;
+  --surface-subtle: #ECEAE1;
+  --surface-hover: #E1DFD3;
+  --border-hairline: #D8D5C7;
+  --border-divider: #E5E3D7;
+  --border-input: #C7C3B2;
+  --text-primary: #1B241E;
+  --text-secondary: #526056;
+  --income-color: #2D6A4F;
+  --income-bg: #EAF4EE;
+  --expense-color: #C2410C;
+  --expense-bg: #FFF7ED;
+  --expense-border: #FED7AA;
+  --expense-text-dark: #9A3412;
+  --savings-color: #9C6644;
+  --savings-bg: #F9F4EF;
+  --warning-color: #D97706;
+}
+
+/* 3B. Eco-Finance Oscuro: Bosque Nocturno & Salvia */
+[data-theme="dark-eco"] {
+  color-scheme: dark;
+  --pink-primary: #52B788;
+  --pink-light: #142B21;
+  --pink-soft: #74C69D;
+  --pink-dark: #40916C;
+  --rose-gold: #DDA15E;
+  --lavender-soft: #2B2117;
+  --lavender-accent: #DDA15E;
+  --lavender-dark: #BC6C25;
+  --lavender-text: #FAEDCD;
+  --background: #050806;
+  --surface: #0F1612;
+  --surface-subtle: #17211B;
+  --surface-hover: #202E26;
+  --border-hairline: #283A30;
+  --border-divider: #1B2820;
+  --border-input: #354C3F;
+  --text-primary: #F1F5F2;
+  --text-secondary: #9BB0A3;
+  --income-color: #52B788;
+  --income-bg: #0D291E;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #DDA15E;
+  --savings-bg: #2B2013;
+  --warning-color: #FBBF24;
+}
+
+/* 4A. Minimalista Corporativo Claro: Alabastro & Bermellón Suizo */
+[data-theme="corporate"] {
+  color-scheme: light;
+  --pink-primary: #D92D20;
+  --pink-light: #FEE4E2;
+  --pink-soft: #FDA29B;
+  --pink-dark: #B42318;
+  --rose-gold: #18181B;
+  --lavender-soft: #E4E4E7;
+  --lavender-accent: #27272A;
+  --lavender-dark: #18181B;
+  --lavender-text: #09090B;
+  --background: #F7F7F8;
+  --surface: #FFFFFF;
+  --surface-subtle: #EFEFF1;
+  --surface-hover: #E4E4E7;
+  --border-hairline: #DFDFE3;
+  --border-divider: #EBEBEE;
+  --border-input: #D1D1D6;
+  --text-primary: #09090B;
+  --text-secondary: #52525B;
+  --income-color: #059669;
+  --income-bg: #ECFDF5;
+  --expense-color: #D92D20;
+  --expense-bg: #FEF3F2;
+  --expense-border: #FECDCA;
+  --expense-text-dark: #912018;
+  --savings-color: #27272A;
+  --savings-bg: #F4F4F5;
+  --warning-color: #D97706;
+}
+
+/* 4B. Minimalista Corporativo Oscuro: Obsidiana & Naranja Terminal */
+[data-theme="dark-corporate"] {
+  color-scheme: dark;
+  --pink-primary: #FF5500;
+  --pink-light: #2E180D;
+  --pink-soft: #FF7733;
+  --pink-dark: #CC4400;
+  --rose-gold: #E4E4E7;
+  --lavender-soft: #27272A;
+  --lavender-accent: #A1A1AA;
+  --lavender-dark: #71717A;
+  --lavender-text: #F4F4F5;
+  --background: #050505;
+  --surface: #121214;
+  --surface-subtle: #1A1A1E;
+  --surface-hover: #242429;
+  --border-hairline: #2C2C33;
+  --border-divider: #1F1F24;
+  --border-input: #3B3B44;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --income-color: #34D399;
+  --income-bg: #0A2E22;
+  --expense-color: #FB7185;
+  --expense-bg: #31101C;
+  --expense-border: #631D35;
+  --expense-text-dark: #FECDD3;
+  --savings-color: #FF7733;
+  --savings-bg: #2C160A;
+  --warning-color: #FBBF24;
+}
+
+/* ==========================================================================
+ * CAPA 2 DE ELEVACIÓN EN MODO OSCURO: VENTANAS EMERGENTES / MODALES
+ * El fondo general se mantiene negro puro (#050507), pero al abrir cualquier
+ * ventana emergente (modal, calculadora, selector "+ Nuevo", P2P, etc.),
+ * la ventana cambia a tonos Grafito / Antracita / Titanio (#1E1E26 y #272732)
+ * con bordes iluminados para que nunca se vea negro sobre negro.
+ * ========================================================================== */
+[data-theme^="dark"] .fixed.inset-0 > div {
+  --surface: #1E1E26;
+  --surface-subtle: #272732;
+  --surface-hover: #31313F;
+  --border-hairline: #3A3A48;
+  --border-divider: #2E2E3B;
+  --border-input: #464657;
+  background-color: #1E1E26 !important;
+  border-color: #3E3E4E !important;
+  box-shadow:
+    0 25px 60px -15px rgba(0, 0, 0, 0.88),
+    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Cabeceras y tarjetas internas dentro de las ventanas emergentes en tono titanio/acero */
+[data-theme^="dark"] .fixed.inset-0 > div .bg-\[var\(--surface-subtle\)\] {
+  background-color: #272732 !important;
+}
+
+[data-theme^="dark"] .fixed.inset-0 > div .bg-\[var\(--surface\)\] {
+  background-color: #1E1E26 !important;
+}
+
+/* Inputs, selects y textareas dentro de ventanas emergentes con contraste nítido */
+[data-theme^="dark"] .fixed.inset-0 > div input:not([type="checkbox"]):not([type="radio"]),
+[data-theme^="dark"] .fixed.inset-0 > div select,
+[data-theme^="dark"] .fixed.inset-0 > div textarea {
+  background-color: #15151C !important;
+  border-color: #434354 !important;
+  color: #FAFAFA !important;
+}
+
+[data-theme^="dark"] .fixed.inset-0 > div input:not([type="checkbox"]):not([type="radio"]):focus,
+[data-theme^="dark"] .fixed.inset-0 > div select:focus,
+[data-theme^="dark"] .fixed.inset-0 > div textarea:focus {
+  border-color: var(--pink-primary) !important;
+  background-color: #191922 !important;
+}
+
+/* Reemplazar tonos slate en vistas generales por grafito/antracita (y en ventanas por titanio) */
+.dark .dark\:bg-slate-950,
+[data-theme^="dark"] .bg-slate-950 {
+  background-color: #060608 !important;
+}
+
+.dark .dark\:bg-slate-900,
+.dark .dark\:bg-slate-900\/90,
+.dark .dark\:bg-slate-900\/80,
+.dark .dark\:bg-slate-900\/60,
+.dark .dark\:bg-slate-900\/50,
+.dark .dark\:bg-slate-900\/40,
+[data-theme^="dark"] .bg-slate-900 {
+  background-color: #131318 !important;
+}
+
+.dark .dark\:bg-slate-800,
+.dark .dark\:bg-slate-800\/90,
+.dark .dark\:bg-slate-800\/80,
+.dark .dark\:bg-slate-800\/60,
+.dark .dark\:bg-slate-800\/50,
+[data-theme^="dark"] .bg-slate-800 {
+  background-color: #1C1C24 !important;
+}
+
+/* Cuando una ventana modal usa clases dark:bg-slate-900 o dark:bg-slate-800 (ej. modales P2P) */
+[data-theme^="dark"] .fixed.inset-0 .dark\:bg-slate-900,
+[data-theme^="dark"] .fixed.inset-0 .bg-slate-900 {
+  background-color: #1E1E26 !important;
+}
+
+[data-theme^="dark"] .fixed.inset-0 .dark\:bg-slate-800,
+[data-theme^="dark"] .fixed.inset-0 .dark\:bg-slate-800\/80,
+[data-theme^="dark"] .fixed.inset-0 .dark\:bg-slate-800\/60,
+[data-theme^="dark"] .fixed.inset-0 .dark\:bg-slate-800\/50,
+[data-theme^="dark"] .fixed.inset-0 .bg-slate-800 {
+  background-color: #272732 !important;
+}
+
+.dark .dark\:border-slate-800,
+.dark .dark\:border-slate-700,
+.dark .dark\:border-slate-700\/60 {
+  border-color: #2D2D3A !important;
+}
+
+[data-theme^="dark"] .fixed.inset-0 .dark\:border-slate-800,
+[data-theme^="dark"] .fixed.inset-0 .dark\:border-slate-700 {
+  border-color: #3E3E4E !important;
+}
+
+
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-editorial,
+  [data-theme] h1,
+  [data-theme] h2,
+  [data-theme] h3,
+  [data-theme] .font-editorial {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-input);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-primary);
+}
+
+.print-only-block {
+  display: none;
+}
+
+/* ==========================================================================
+ * MODO IMPRESIÓN (@media print) — Formato A4 / Carta para Reportes y Listas
+ * Oculta menús, botones y formularios; deja un reporte limpio y editorial
+ * ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+  }
+
+  html,
+  body,
+  [data-theme] {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    color-scheme: light !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Ocultar barras laterales, barras superiores, botones, formularios y notificaciones */
+  .no-print,
+  aside,
+  header.app-topbar,
+  #tour-header-bar,
+  nav,
+  button,
+  input,
+  select,
+  textarea {
+    display: none !important;
+  }
+
+  .print-only-block {
+    display: block !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .printable-report-sheet {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .printable-report-sheet header {
+    display: flex !important;
+  }
+
+  .print-border-strong {
+    border-color: #0f172a !important;
+  }
+
+  .print-text-strong {
+    color: #0f172a !important;
+  }
+
+  .print-text-muted {
+    color: #475569 !important;
+  }
+
+  .print-grid-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .print-card {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-table-wrapper {
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    overflow: visible !important;
+  }
+
+  .print-table-header {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  .print-table-row {
+    border-bottom: 1px solid #e2e8f0 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

@@ -1,0 +1,89 @@
+:root,
+[data-theme="rose"] {
+  color-scheme: light;
+  --pink-primary: #C86D85;
+  --pink-light: #F6E6EA;
+  --pink-soft: #E8C5D0;
+  --pink-dark: #9B475E;
+  --rose-gold: #B76E79;
+  --lavender-soft: #EAE4F2;
+  --lavender-accent: #8A79A6;
+  --background: #FDFBF9;
+  --surface: #FFFFFF;
+  --surface-subtle: #FAF5F6;
+  --text-primary: #2D2226;
+  --text-secondary: #756369;
+  --income-color: #2E8B6E;
+  --expense-color: #D45B72;
+  --savings-color: #8A79A6;
+}
+
+[data-theme="masculine"] {
+  color-scheme: light;
+  --pink-primary: #1E40AF;
+  --pink-light: #DBEAFE;
+  --pink-soft: #93C5FD;
+  --pink-dark: #1E3A8A;
+  --rose-gold: #0369A1;
+  --lavender-soft: #E0E7FF;
+  --lavender-accent: #4338CA;
+  --background: #F4F6F9;
+  --surface: #FFFFFF;
+  --surface-subtle: #EDF1F7;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --income-color: #059669;
+  --expense-color: #E11D48;
+  --savings-color: #4338CA;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --pink-primary: #3B82F6;
+  --pink-light: #1E293B;
+  --pink-soft: #60A5FA;
+  --pink-dark: #2563EB;
+  --rose-gold: #38BDF8;
+  --lavender-soft: #1E243B;
+  --lavender-accent: #6366F1;
+  --background: #0B0F17;
+  --surface: #131B29;
+  --surface-subtle: #1A2436;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --income-color: #34D399;
+  --expense-color: #FB7185;
+  --savings-color: #818CF8;
+}
+
+[data-theme="dark-rose"] {
+  color-scheme: dark;
+  --pink-primary: #D97B93;
+  --pink-light: #2B1D23;
+  --pink-soft: #A85B6F;
+  --pink-dark: #C86D85;
+  --rose-gold: #E09F9A;
+  --lavender-soft: #272033;
+  --lavender-accent: #A594C4;
+  --background: #120E10;
+  --surface: #1C1518;
+  --surface-subtle: #251C20;
+  --text-primary: #F9F1F3;
+  --text-secondary: #B8A3AA;
+  --income-color: #4CC39A;
+  --expense-color: #F2748B;
+  --savings-color: #B4A2D4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

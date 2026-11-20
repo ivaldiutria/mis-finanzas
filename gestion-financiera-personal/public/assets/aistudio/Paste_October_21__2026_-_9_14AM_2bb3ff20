@@ -1,0 +1,1110 @@
+# PROMPT: DESARROLLO DE UNA APLICACIÓN WEB DE FINANZAS PERSONALES PARA UNA CHICA
+
+Actúa como un desarrollador front-end senior, diseñador de producto UI/UX y especialista en aplicaciones de finanzas personales.
+
+Necesito que construyas una aplicación web completa, moderna, atractiva, femenina y funcional para que **una sola persona, una chica, pueda administrar sus finanzas personales, controlar sus ingresos y gastos, organizar sus ahorros y consultar estadísticas financieras**.
+
+La aplicación debe tener una estética delicada y elegante, con una paleta de colores rosados, tonos pastel, rosa empolvado, blush pink, rosa palo, lavanda suave, blanco cálido y detalles rose gold. El resultado debe transmitir orden, tranquilidad, independencia financiera y una experiencia agradable de uso diario, sin parecer infantil ni recargado.
+
+La aplicación debe ser de uso personal, estática, sin backend, sin base de datos externa y sin necesidad de servidor propio. Todo debe funcionar en el navegador, utilizando almacenamiento local y permitiendo descargar y restaurar la información mediante archivos JSON.
+
+Además, debe incorporar una funcionalidad para consultar automáticamente la **tasa de cambio oficial del dólar publicada por el BCV**, utilizando la API indicada en este prompt, mostrando siempre la tasa con exactamente dos decimales.
+
+---
+
+# 1. OBJETIVO PRINCIPAL
+
+Crear una aplicación web de finanzas personales para una sola chica que permita administrar de forma sencilla y visual:
+
+- Ingresos personales.
+- Gastos personales.
+- Presupuesto mensual.
+- Ahorros individuales.
+- Metas de ahorro.
+- Deudas y pagos pendientes, si se desea habilitar este módulo.
+- Categorías de ingresos y gastos.
+- Control del dinero disponible.
+- Conversión entre bolívares venezolanos (VES/Bs) y dólares estadounidenses (USD).
+- Consulta automática de la tasa oficial del dólar BCV.
+- Estadísticas mensuales, anuales e históricas.
+- Gráficas financieras.
+- Exportación e importación de respaldos JSON.
+
+La aplicación debe estar diseñada exclusivamente para una persona. **No debe existir ninguna sección de pareja, segundo usuario, finanzas compartidas, gastos conjuntos ni ahorros en conjunto.**
+
+El nombre de la usuaria debe poder configurarse en los ajustes, con un nombre predeterminado como «Mis Finanzas».
+
+# 2. TECNOLOGÍAS Y ARQUITECTURA
+
+Utiliza tecnologías sencillas, modernas y fáciles de mantener.
+
+Preferiblemente:
+
+- HTML5.
+- CSS3.
+- JavaScript.
+- Chart.js para las gráficas, si resulta conveniente.
+- localStorage para conservar los datos en el navegador.
+- API Fetch para consultar la tasa de cambio oficial.
+- JSON para exportar e importar respaldos.
+
+Puedes utilizar JavaScript puro o un framework ligero si aporta una ventaja real. Sin embargo, prioriza una aplicación que pueda ejecutarse de forma sencilla, con una estructura de archivos clara y sin procesos complicados de instalación.
+
+La aplicación debe incluir, como mínimo:
+
+- `index.html`
+- `styles.css`
+- `app.js`
+
+Puedes añadir otros archivos JavaScript o CSS si ayudan a organizar el proyecto.
+
+Requisitos técnicos:
+
+- Sin backend.
+- Sin base de datos externa.
+- Sin autenticación.
+- Sin registro de usuarios.
+- Sin envío de datos financieros a terceros.
+- Sin APIs externas obligatorias para que funcionen los registros financieros básicos.
+- Los datos personales y financieros deben permanecer en el navegador.
+- La única conexión externa principal será la consulta de la tasa BCV y, si se utiliza Chart.js por CDN, la descarga de esa biblioteca.
+
+La aplicación debe funcionar con una arquitectura sencilla, evitando dependencias innecesarias.
+
+Si se utiliza `localStorage`, recuerda que los archivos abiertos directamente mediante `file://` pueden presentar limitaciones con algunas funciones de JavaScript, los módulos y las solicitudes `fetch`. Por ello, organiza el proyecto para que pueda abrirse de forma sencilla y, cuando sea necesario para la consulta de la API, indica una alternativa local sencilla, como un servidor estático local. No debe requerir un backend propio ni una base de datos.
+
+# 3. DISEÑO VISUAL: FEMENINO, ROSADO Y ELEGANTE
+
+El diseño es una parte fundamental del proyecto.
+
+Quiero una interfaz visualmente bonita, moderna, delicada y femenina, con apariencia de una aplicación financiera premium diseñada especialmente para una chica.
+
+## Paleta de colores
+
+Utiliza una paleta coherente basada en:
+
+- Rosa pastel.
+- Rosa empolvado.
+- Rosa palo.
+- Blush pink.
+- Rosa claro.
+- Blanco cálido o marfil.
+- Lavanda suave como color complementario.
+- Rose gold para pequeños detalles.
+- Gris cálido para textos secundarios.
+- Verde suave para ingresos y balances positivos.
+- Coral o rojo rosado para gastos y alertas.
+
+Puedes definir variables CSS como:
+
+- `--pink-primary`
+- `--pink-light`
+- `--pink-soft`
+- `--pink-dark`
+- `--rose-gold`
+- `--lavender-soft`
+- `--background`
+- `--surface`
+- `--text-primary`
+- `--text-secondary`
+- `--income-color`
+- `--expense-color`
+- `--savings-color`
+
+Los colores deben combinarse de forma equilibrada. No utilices rosa intenso en toda la interfaz ni demasiados degradados.
+
+## Estilo de la interfaz
+
+La aplicación debe incluir:
+
+- Tarjetas con bordes redondeados.
+- Sombras suaves y discretas.
+- Espaciado generoso.
+- Tipografía moderna y legible.
+- Iconos elegantes y coherentes.
+- Botones con estados hover y active.
+- Transiciones suaves.
+- Gráficas que combinen con la paleta rosada.
+- Formularios limpios.
+- Modales atractivos para agregar o editar movimientos.
+- Etiquetas visuales para identificar ingresos, gastos y ahorros.
+- Mensajes de éxito y error agradables y claros.
+- Una interfaz sin saturación visual.
+
+Puedes incluir pequeños detalles decorativos, como iconos de flores minimalistas o elementos suaves, pero sin perjudicar la legibilidad ni la usabilidad.
+
+## Diseño responsive
+
+La aplicación debe adaptarse perfectamente a:
+
+- Computadoras de escritorio.
+- Portátiles.
+- Tablets.
+- Teléfonos móviles.
+
+En escritorio puede utilizar un menú lateral fijo y un dashboard amplio.
+
+En móvil, el menú debe transformarse en navegación compacta, menú desplegable o barra inferior, según lo que produzca una mejor experiencia.
+
+Las tablas deben adaptarse a pantallas pequeñas mediante tarjetas o desplazamiento horizontal controlado.
+
+No sacrifiques la funcionalidad móvil por la estética.
+
+# 4. ESTRUCTURA GENERAL DE LA APLICACIÓN
+
+La navegación debe ser clara y estar organizada en las siguientes secciones:
+
+1. Dashboard.
+2. Mis ingresos.
+3. Mis gastos.
+4. Movimientos.
+5. Presupuesto mensual.
+6. Mis ahorros.
+7. Metas de ahorro.
+8. Deudas y pagos, opcional.
+9. Categorías.
+10. Estadísticas e informes.
+11. Configuración y respaldo.
+
+La tasa oficial del BCV debe aparecer en un lugar visible del dashboard y también en una sección de configuración de moneda.
+
+El usuario debe poder navegar entre las secciones sin perder la información introducida ni los filtros que resulte razonable conservar.
+
+# 5. DASHBOARD PRINCIPAL
+
+El dashboard debe ser la pantalla inicial de la aplicación y ofrecer una visión clara de la situación financiera de la usuaria.
+
+Debe incluir un selector de mes y año.
+
+## Tarjetas de resumen
+
+Mostrar tarjetas con:
+
+- Ingresos totales del mes.
+- Gastos totales del mes.
+- Balance neto mensual.
+- Dinero disponible estimado.
+- Total ahorrado.
+- Ahorro aportado durante el mes.
+- Presupuesto mensual restante.
+- Porcentaje del presupuesto utilizado.
+- Variación de ingresos respecto al mes anterior.
+- Variación de gastos respecto al mes anterior.
+
+Todos los valores deben actualizarse automáticamente al crear, modificar o eliminar movimientos.
+
+Los importes deben poder visualizarse en USD y en bolívares, según corresponda.
+
+Cuando se muestren equivalencias entre monedas, debe quedar claro cuál es el importe original y cuál es el equivalente calculado.
+
+## Gráficas
+
+Incorpora gráficas útiles y visualmente atractivas:
+
+1. Gráfica de barras de ingresos frente a gastos por mes.
+2. Gráfica de línea con la evolución del balance mensual.
+3. Gráfica de dona para la distribución de gastos por categoría.
+4. Gráfica del progreso de los ahorros.
+5. Gráfica de comparación entre presupuesto planificado y gastos reales.
+6. Gráfica de evolución de ingresos, gastos y capacidad de ahorro.
+
+Las gráficas deben utilizar tonos rosados, lavanda y colores complementarios discretos, manteniendo un buen contraste.
+
+No es necesario mostrar todas las gráficas simultáneamente. Organízalas para que el dashboard sea limpio y fácil de entender.
+
+## Resumen de movimientos recientes
+
+Incluye una lista de los últimos movimientos con:
+
+- Fecha.
+- Descripción.
+- Categoría.
+- Tipo de movimiento.
+- Importe.
+- Moneda.
+- Acciones para editar y eliminar.
+
+También debe existir un botón visible para registrar rápidamente un nuevo ingreso, gasto o movimiento de ahorro.
+
+# 6. MÓDULO DE INGRESOS
+
+Permite registrar todos los ingresos de la usuaria.
+
+Ejemplos:
+
+- Salario.
+- Trabajo independiente.
+- Freelance.
+- Negocio propio.
+- Comisiones.
+- Bonificaciones.
+- Regalos.
+- Otros ingresos.
+
+## Campos de cada ingreso
+
+- Identificador único.
+- Fecha.
+- Descripción.
+- Categoría.
+- Importe.
+- Moneda: USD o VES/Bs.
+- Tasa de cambio utilizada, cuando corresponda.
+- Equivalente en USD.
+- Fuente del ingreso, opcional.
+- Método de recepción, opcional.
+- Notas, opcionales.
+
+## Funcionalidades
+
+- Crear ingresos.
+- Editar ingresos.
+- Eliminar ingresos.
+- Duplicar ingresos, opcional.
+- Buscar por descripción.
+- Filtrar por fecha, categoría y moneda.
+- Ordenar por importe o fecha.
+- Consultar totales mensuales y anuales.
+- Comparar ingresos entre periodos.
+
+La aplicación debe guardar el importe original, la moneda original y la tasa utilizada para que los registros históricos no cambien cuando se actualice la tasa oficial.
+
+# 7. MÓDULO DE GASTOS
+
+Permite controlar los gastos de la usuaria con categorías editables.
+
+Ejemplos de categorías iniciales:
+
+- Alimentación.
+- Supermercado.
+- Transporte.
+- Gasolina.
+- Vivienda.
+- Servicios.
+- Internet y telefonía.
+- Salud.
+- Belleza y cuidado personal.
+- Ropa y accesorios.
+- Educación.
+- Entretenimiento.
+- Restaurantes y salidas.
+- Suscripciones.
+- Viajes.
+- Mascotas.
+- Regalos.
+- Compras personales.
+- Otros gastos.
+
+Las categorías deben poder modificarse, eliminarse o desactivarse desde la sección correspondiente.
+
+## Campos de cada gasto
+
+- Identificador único.
+- Fecha.
+- Descripción.
+- Categoría.
+- Importe.
+- Moneda: USD o VES/Bs.
+- Tasa de cambio utilizada.
+- Equivalente en USD.
+- Método de pago, opcional.
+- Tipo de gasto: fijo o variable.
+- Notas, opcionales.
+
+## Funcionalidades
+
+- Crear, editar y eliminar gastos.
+- Buscar por texto.
+- Filtrar por fecha, categoría, moneda y tipo de gasto.
+- Ordenar por fecha e importe.
+- Mostrar el total gastado durante el mes.
+- Identificar las categorías con mayor gasto.
+- Comparar gastos respecto al mes anterior.
+- Detectar gastos recurrentes, si se implementa esa funcionalidad.
+- Actualizar automáticamente todas las estadísticas después de cualquier modificación.
+
+Los gastos deben mostrarse con una identificación visual distinta de los ingresos, sin utilizar colores excesivamente intensos.
+
+# 8. MÓDULO DE MOVIMIENTOS
+
+Incluye una sección que reúna todos los movimientos financieros en una única tabla o lista.
+
+Debe permitir consultar ingresos y gastos cronológicamente.
+
+Columnas recomendadas:
+
+- Fecha.
+- Descripción.
+- Tipo.
+- Categoría.
+- Importe original.
+- Moneda.
+- Equivalente en USD.
+- Tasa utilizada, si corresponde.
+- Acciones.
+
+Debe incluir:
+
+- Búsqueda por texto.
+- Filtros por mes, año, tipo, categoría y moneda.
+- Ordenamiento por fecha e importe.
+- Edición de registros.
+- Eliminación con confirmación.
+- Paginación o visualización progresiva, si se acumulan muchos registros.
+
+Los movimientos deben ser la fuente principal de los cálculos de ingresos y gastos, evitando duplicar datos o sumar dos veces el mismo movimiento.
+
+# 9. MONEDAS Y CONVERSIÓN ENTRE VES Y USD
+
+La aplicación debe trabajar principalmente con dos monedas:
+
+- USD: dólares estadounidenses.
+- VES/Bs: bolívares venezolanos.
+
+Utiliza `VES` como código normalizado de la moneda venezolana en los datos internos, pero muestra en la interfaz una denominación familiar como «Bs» o «VES», según resulte más claro.
+
+Los términos «dólares» y «USD» deben tratarse como la misma moneda.
+
+## Moneda base
+
+La moneda base para estadísticas, balances comparativos, presupuestos y gráficas debe ser el USD.
+
+Los registros pueden introducirse en USD o VES.
+
+Cuando un movimiento se introduzca en USD:
+
+- El importe original se conserva en USD.
+- El equivalente en USD es igual al importe original.
+- No debe aplicarse ninguna conversión innecesaria.
+
+Cuando un movimiento se introduzca en VES:
+
+- Debe utilizarse una tasa de cambio válida expresada en VES por USD.
+- El equivalente en USD debe calcularse automáticamente.
+- La tasa utilizada debe guardarse en el propio movimiento.
+
+Fórmula de conversión:
+
+`montoUSD = montoVES / tasaVESporUSD`
+
+Ejemplo:
+
+Si la tasa oficial es `881.88 Bs/USD` y se registra un gasto de `8,818.80 Bs`, el equivalente debe ser `10.00 USD`.
+
+La conversión debe conservar suficiente precisión internamente y mostrar los importes monetarios con dos decimales cuando corresponda.
+
+## Historial de tasas
+
+Cada registro en VES debe conservar la tasa que se utilizó en el momento de registrarlo.
+
+Si la tasa oficial se actualiza posteriormente:
+
+- Los movimientos históricos no deben modificarse automáticamente.
+- Los equivalentes históricos en USD deben conservarse.
+- Los nuevos movimientos deben utilizar la tasa vigente seleccionada.
+- Si se implementa una opción para recalcular registros históricos, debe ser explícita, mostrar una advertencia y solicitar confirmación.
+
+La aplicación debe distinguir claramente entre:
+
+- Tasa oficial actual del BCV.
+- Tasa guardada en un movimiento histórico.
+- Tasa manual introducida por la usuaria.
+
+# 10. INTEGRACIÓN DE LA API OFICIAL DEL BCV
+
+Esta funcionalidad es obligatoria.
+
+Utiliza como fuente la API proporcionada:
+
+`https://dolarflow.com/api/oficial/`
+
+La API devuelve información de la tasa oficial, por ejemplo:
+
+```json
+{
+  "exito": true,
+  "fuente": "bcv.org.ve",
+  "nombre": "Oficial",
+  "precio": 881.8769,
+  "tasa": "1 USD ≈ 881,88 VES",
+  "moneda": "VES",
+  "base": "USD",
+  "promedio": 881.8769,
+  "fechaActualizacion": "2026-10-20T18:00:24.069Z",
+  "fecha": "20/10/2026",
+  "hora": "2:00:24 p. m."
+}
+```
+
+La respuesta anterior es únicamente un ejemplo de estructura. **No debes codificar esa tasa como si fuera la tasa actual.** Debes consultar la API para obtener el valor vigente.
+
+## Consulta de la tasa
+
+Realiza la consulta utilizando JavaScript y `fetch`.
+
+Ejemplo de referencia:
+
+```javascript
+const url = "https://dolarflow.com/api/oficial/";
+
+async function obtenerTasaBCV() {
+    const respuesta = await fetch(url);
+
+    if (!respuesta.ok) {
+        throw new Error("No se pudo consultar la tasa oficial del BCV.");
+    }
+
+    const data = await respuesta.json();
+
+    if (
+        data.exito !== true ||
+        typeof data.precio !== "number" ||
+        !Number.isFinite(data.precio) ||
+        data.precio <= 0
+    ) {
+        throw new Error("La respuesta de la tasa oficial no es válida.");
+    }
+
+    return {
+        tasa: Number(data.precio),
+        fecha: data.fecha ?? null,
+        fechaActualizacion: data.fechaActualizacion ?? null,
+        fuente: data.fuente ?? "bcv.org.ve"
+    };
+}
+```
+
+Este código es una referencia inicial. Intégralo de manera correcta en la aplicación y maneja los errores de red, las respuestas inválidas y las restricciones CORS que pudiera tener el servicio.
+
+No inventes una tasa ni simules una consulta exitosa.
+
+## La tasa debe mostrarse con dos decimales
+
+La tasa oficial debe mostrarse siempre con exactamente dos decimales en la interfaz.
+
+Ejemplo:
+
+- Valor recibido de la API: `881.8769`.
+- Valor mostrado: `881.88 Bs/USD`.
+
+En JavaScript, utiliza una función de formato adecuada, por ejemplo:
+
+```javascript
+function formatearTasa(tasa) {
+    return new Intl.NumberFormat("es-VE", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(tasa);
+}
+```
+
+El resultado esperado para el ejemplo anterior es:
+
+`881,88`
+
+En la interfaz debe presentarse como:
+
+**1 USD = 881,88 Bs**
+
+El valor interno de la tasa debe conservar la precisión recibida de la API. El formato a dos decimales es exclusivamente para su visualización y para las reglas de redondeo que se definan expresamente.
+
+No utilices el texto `data.tasa` como fuente principal del cálculo, porque puede ser una cadena formateada. Utiliza el valor numérico `data.precio`.
+
+## Visualización de la tasa en el dashboard
+
+Incluye una tarjeta atractiva con:
+
+- Título: «Dólar oficial BCV».
+- Valor destacado: `1 USD = XXX,XX Bs`.
+- Fecha de la tasa.
+- Hora o fecha de actualización, cuando esté disponible.
+- Fuente: BCV.
+- Botón «Actualizar tasa».
+- Indicador del estado de la consulta.
+
+El diseño de esta tarjeta debe integrarse con la estética rosada y elegante de la aplicación.
+
+La fecha y hora deben presentarse correctamente, teniendo en cuenta la zona horaria. Si se muestra la hora convertida a la zona horaria local, debe evitarse confundirla con la hora original devuelta por la API.
+
+## Actualización automática
+
+La aplicación debe:
+
+1. Consultar la tasa al iniciarse.
+2. Permitir actualizarla manualmente.
+3. Guardar en `localStorage` la última tasa válida recibida, junto con su fecha de actualización.
+4. Mostrar la fecha de la última consulta exitosa.
+5. Manejar errores sin bloquear el resto de la aplicación.
+6. Evitar consultas excesivas innecesarias.
+7. No afirmar que la tasa está actualizada si no se ha podido comprobar.
+8. Permitir utilizar la última tasa válida guardada si no hay conexión.
+
+Si falla la API:
+
+- Mostrar un mensaje discreto, como «No se pudo actualizar la tasa oficial».
+- Mostrar la fecha de la última tasa válida guardada.
+- Permitir utilizar esa tasa si existe.
+- Si no existe ninguna tasa válida, permitir introducir una tasa manual.
+- Identificar claramente las tasas manuales y las tasas oficiales.
+- No reemplazar una tasa válida por cero, `NaN`, una respuesta incompleta o un valor inventado.
+
+La tasa oficial debe ser el valor predeterminado para nuevos registros en VES cuando esté disponible.
+
+La usuaria debe poder cambiar manualmente la tasa aplicada a un movimiento cuando lo necesite, pero la aplicación debe identificar ese movimiento como una conversión manual.
+
+## Consideraciones técnicas
+
+La API podría presentar restricciones de CORS, indisponibilidad temporal o cambios en su respuesta.
+
+Por tanto:
+
+- Comprueba que la respuesta sea válida antes de utilizarla.
+- Controla errores HTTP, errores de red y excepciones de análisis JSON.
+- No añadas un backend como solución predeterminada.
+- Si la consulta directa no funciona por CORS, explica esa limitación y presenta una alternativa compatible con las restricciones del proyecto.
+- No utilices una tasa ficticia como sustituto de la API.
+- No afirmes haber probado la conexión real si no ha sido posible verificarla.
+
+# 11. PRESUPUESTO MENSUAL
+
+Crea un módulo para que la usuaria pueda establecer límites de gasto mensuales.
+
+Debe permitir:
+
+- Definir un presupuesto mensual total.
+- Definir presupuestos por categoría.
+- Establecer el periodo correspondiente.
+- Consultar el presupuesto consumido.
+- Ver el saldo restante del presupuesto.
+- Mostrar el porcentaje utilizado.
+- Comparar el presupuesto planificado con los gastos reales.
+- Consultar el histórico de presupuestos anteriores.
+
+Ejemplo:
+
+Si una categoría tiene un presupuesto mensual de 100 USD y se han gastado 65 USD, mostrar:
+
+- Presupuesto: 100,00 USD.
+- Gastado: 65,00 USD.
+- Disponible: 35,00 USD.
+- Utilizado: 65 %.
+
+Los importes de gastos en VES deben convertirse a USD utilizando la tasa guardada en cada registro.
+
+Incluye barras de progreso con colores suaves:
+
+- Rosa o lavanda para un progreso normal.
+- Amarillo suave para un nivel de gasto elevado.
+- Coral para un presupuesto excedido.
+
+Estos indicadores deben ser informativos, sin modificar automáticamente ningún registro.
+
+# 12. MÓDULO DE AHORROS
+
+Crea una sección específica para administrar los ahorros personales.
+
+Todos los ahorros deben contabilizarse en USD, independientemente de que el dinero de origen se haya obtenido en VES.
+
+No permitas registrar un saldo de ahorro directamente en VES. Si la usuaria desea ahorrar dinero que tiene en bolívares, debe registrar su conversión a USD utilizando la tasa correspondiente.
+
+## Movimientos de ahorro
+
+Permite registrar:
+
+- Aportes.
+- Retiros.
+- Ajustes justificados, si se habilitan.
+
+Campos:
+
+- Fecha.
+- Tipo de movimiento.
+- Importe en USD.
+- Descripción.
+- Categoría de ahorro.
+- Notas.
+- Meta asociada, opcional.
+
+Ejemplos de categorías:
+
+- Fondo de emergencia.
+- Viajes.
+- Compras importantes.
+- Educación.
+- Vivienda.
+- Inversión.
+- Proyecto personal.
+- Otros ahorros.
+
+## Reglas de ahorro
+
+- Un aporte reduce el dinero disponible y aumenta el saldo de ahorro.
+- Un retiro reduce el saldo de ahorro y aumenta el dinero disponible.
+- Los aportes y retiros no deben contabilizarse como nuevos ingresos o gastos de consumo.
+- El sistema debe evitar contar dos veces el mismo dinero.
+- El saldo de ahorro debe calcularse a partir de los movimientos registrados.
+- Cualquier edición o eliminación debe recalcular los saldos.
+
+Si se permiten ajustes de saldo, deben quedar identificados y no mezclarse silenciosamente con los ingresos normales.
+
+# 13. METAS DE AHORRO
+
+Permite crear metas de ahorro personales.
+
+Ejemplos:
+
+- Comprar una computadora.
+- Viajar.
+- Comprar un teléfono.
+- Crear un fondo de emergencia.
+- Ahorrar para un proyecto.
+- Alcanzar una cantidad específica de dólares.
+
+Cada meta debe incluir:
+
+- Nombre.
+- Descripción opcional.
+- Importe objetivo en USD.
+- Saldo acumulado.
+- Fecha de creación.
+- Fecha objetivo, opcional.
+- Estado: activa, completada o archivada.
+
+La aplicación debe mostrar:
+
+- Progreso en porcentaje.
+- Importe ahorrado.
+- Importe restante.
+- Fecha objetivo, cuando exista.
+- Barra de progreso visual.
+
+Los aportes asociados a una meta deben reflejarse en los movimientos de ahorro existentes. No deben generar una segunda suma del mismo dinero.
+
+Al completar una meta, la aplicación debe mostrar un mensaje visual agradable y permitir archivarla.
+
+# 14. DEUDAS Y PAGOS PENDIENTES (OPCIONAL)
+
+Si implementas este módulo, debe permitir registrar deudas personales y pagos pendientes.
+
+Campos:
+
+- Descripción.
+- Acreedor.
+- Importe pendiente.
+- Moneda.
+- Tasa de cambio utilizada, si corresponde.
+- Fecha de vencimiento.
+- Pagos realizados.
+- Notas.
+
+Debe calcular el saldo pendiente sin duplicar los pagos como gastos cuando estos ya se hayan registrado en los movimientos.
+
+Este módulo es secundario. Si su implementación complica el desarrollo o compromete la estabilidad del proyecto, prioriza primero ingresos, gastos, presupuesto, ahorros y metas.
+
+# 15. CATEGORÍAS EDITABLES
+
+Debe existir una sección para administrar categorías.
+
+Tipos de categoría:
+
+- Ingresos.
+- Gastos.
+- Ahorros.
+
+Funcionalidades:
+
+- Crear categoría.
+- Editar nombre.
+- Elegir un icono, si se implementa.
+- Elegir un color complementario, manteniendo la estética de la aplicación.
+- Desactivar categoría.
+- Eliminar categoría cuando sea seguro hacerlo.
+- Filtrar categorías por tipo.
+
+No permitas que la eliminación de una categoría destruya accidentalmente movimientos históricos.
+
+Si una categoría tiene registros asociados:
+
+- Advertir a la usuaria.
+- Permitir desactivarla.
+- Ofrecer reasignar sus movimientos a otra categoría.
+- Mantener la integridad de los registros.
+
+Las categorías iniciales deben estar disponibles desde la primera ejecución.
+
+# 16. ESTADÍSTICAS E INFORMES
+
+Incluye una sección para analizar la evolución de las finanzas personales.
+
+Filtros:
+
+- Mes.
+- Año.
+- Rango de fechas.
+- Categoría.
+- Tipo de movimiento.
+- Moneda.
+
+Indicadores:
+
+- Total de ingresos.
+- Total de gastos.
+- Balance neto.
+- Porcentaje de ingresos destinado a gastos.
+- Capacidad de ahorro.
+- Promedio mensual de ingresos.
+- Promedio mensual de gastos.
+- Categoría con mayor gasto.
+- Mes con mayor ahorro.
+- Evolución del dinero disponible.
+- Evolución del patrimonio financiero registrado.
+
+Fórmulas básicas:
+
+`balanceNeto = ingresosDelPeriodo - gastosDelPeriodo`
+
+`capacidadDeAhorro = ingresosDelPeriodo - gastosDelPeriodo`
+
+`porcentajeDeGastos = gastosDelPeriodo / ingresosDelPeriodo * 100`
+
+La aplicación debe manejar correctamente los casos en los que no existan ingresos o movimientos, evitando divisiones entre cero y valores `NaN`.
+
+El balance neto no debe confundirse con el saldo disponible ni con el total de ahorros.
+
+El patrimonio financiero estimado debe calcularse a partir de los saldos que realmente se registren, evitando sumar dos veces los aportes a ahorros.
+
+Todas las estadísticas deben calcularse de forma consistente en USD, conservando los valores originales en VES para su consulta.
+
+# 17. CONFIGURACIÓN
+
+Crea una sección de configuración con:
+
+- Nombre de la usuaria.
+- Moneda base, USD por defecto.
+- Preferencia de visualización de importes.
+- Tasa oficial del BCV.
+- Fecha de la última actualización de la tasa.
+- Tasa manual alternativa.
+- Saldo inicial disponible, si se utiliza.
+- Fecha de inicio del seguimiento financiero.
+- Preferencias de formato numérico.
+- Opción para cargar datos de ejemplo.
+- Opción para borrar todos los datos, con confirmación doble.
+
+La tasa manual no debe reemplazar silenciosamente la tasa oficial.
+
+Si la usuaria introduce una tasa manual, debe quedar claro si se trata de:
+
+- La tasa de conversión de un movimiento concreto.
+- La tasa manual predeterminada para nuevos movimientos.
+- La última tasa oficial consultada.
+
+La configuración debe guardarse automáticamente en `localStorage`.
+
+# 18. ALMACENAMIENTO LOCAL Y RESPALDO JSON
+
+Todos los datos deben guardarse localmente en el navegador mediante `localStorage`.
+
+La aplicación debe conservar:
+
+- Configuración.
+- Categorías.
+- Ingresos.
+- Gastos.
+- Movimientos de ahorro.
+- Metas de ahorro.
+- Presupuestos.
+- Deudas, si se implementan.
+- Tasas consultadas y sus fechas.
+- Preferencias de la interfaz.
+
+Los datos deben persistir después de recargar la página o cerrar y volver a abrir el navegador en el mismo entorno de almacenamiento.
+
+## Exportar datos
+
+Incluye un botón visible:
+
+«Descargar respaldo JSON».
+
+El archivo debe contener todos los datos necesarios para recuperar la aplicación, con una estructura similar a esta:
+
+```json
+{
+  "schemaVersion": 1,
+  "settings": {
+    "userName": "Mis Finanzas",
+    "baseCurrency": "USD",
+    "defaultExchangeRate": null,
+    "lastOfficialRate": null,
+    "lastOfficialRateDate": null,
+    "startingBalanceUsd": 0
+  },
+  "categories": [],
+  "transactions": [],
+  "savings": [],
+  "savingsGoals": [],
+  "budgets": [],
+  "debts": []
+}
+```
+
+La estructura es orientativa. Puedes mejorarla si mantienes la coherencia entre los módulos y aseguras que todos los datos necesarios se exporten.
+
+No guardes una tasa ficticia como valor oficial. Si no existe una tasa válida, utiliza `null`.
+
+Cada movimiento debe incluir un identificador único, su fecha, importe original, moneda y tasa aplicada cuando corresponda.
+
+## Importar datos
+
+Incluye un botón:
+
+«Cargar respaldo JSON».
+
+La aplicación debe:
+
+- Permitir seleccionar un archivo JSON.
+- Validar el contenido.
+- Comprobar la versión del esquema.
+- Detectar archivos inválidos.
+- Mostrar errores comprensibles.
+- Solicitar confirmación antes de reemplazar los datos existentes.
+- Restaurar correctamente todos los módulos.
+- Actualizar las estadísticas después de la importación.
+- No dejar datos parcialmente modificados si la importación falla.
+
+La versión mínima puede reemplazar los datos actuales por los del archivo importado.
+
+Si se ofrece una función para fusionar respaldos, debe detectar registros duplicados mediante identificadores únicos.
+
+## Privacidad y seguridad
+
+La interfaz debe incluir un aviso discreto:
+
+«Tus datos financieros se guardan en este navegador. Descarga copias de seguridad periódicamente para evitar perderlos».
+
+No envíes movimientos, saldos ni datos personales a servicios externos.
+
+La consulta de la tasa oficial no debe transmitir información financiera de la usuaria.
+
+# 19. MODELO DE DATOS Y REGLAS CONTABLES
+
+Define un modelo de datos coherente antes de desarrollar la interfaz.
+
+Cada registro financiero debe tener un identificador único y los campos necesarios para mantener la integridad de los datos.
+
+Ejemplo de movimiento:
+
+```json
+{
+  "id": "txn_001",
+  "date": "2026-10-21",
+  "type": "expense",
+  "description": "Compra en supermercado",
+  "categoryId": "cat_food",
+  "amount": 8818.80,
+  "currency": "VES",
+  "exchangeRate": 881.8769,
+  "amountUsd": 10.00,
+  "exchangeRateSource": "bcv",
+  "notes": ""
+}
+```
+
+El ejemplo representa una estructura orientativa. El valor de la tasa y el equivalente en USD deben corresponder al cálculo real del registro.
+
+Reglas obligatorias:
+
+1. Los ingresos aumentan el balance financiero.
+2. Los gastos disminuyen el balance financiero.
+3. Los aportes a ahorro trasladan dinero disponible a ahorro, sin aumentar los ingresos.
+4. Los retiros de ahorro trasladan dinero de ahorro a dinero disponible, sin generar ingresos nuevos.
+5. Los movimientos en VES conservan su importe y tasa originales.
+6. USD es la moneda base de las estadísticas.
+7. La tasa histórica de cada movimiento no cambia automáticamente.
+8. La tasa oficial vigente se consulta desde la API, cuando está disponible.
+9. Las tasas oficiales y manuales deben diferenciarse.
+10. Los saldos deben derivarse de movimientos coherentes, evitando duplicidades.
+11. Las modificaciones y eliminaciones deben recalcular los resultados.
+12. Los cálculos internos deben evitar errores comunes de precisión monetaria.
+13. Las fechas deben validarse y almacenarse en un formato coherente.
+14. Los importes de ingresos, gastos y aportes deben ser positivos.
+15. Los retiros deben ser positivos como importe de movimiento, aunque su efecto contable sea negativo en el saldo de ahorro.
+16. Los cálculos deben manejar correctamente valores vacíos y datos inválidos.
+17. La aplicación no debe permitir que una categoría eliminada deje referencias rotas en registros históricos.
+18. Los datos importados deben validarse antes de guardarse.
+
+# 20. EXPERIENCIA DE USUARIO
+
+La experiencia debe ser sencilla, intuitiva y agradable.
+
+La usuaria debe poder registrar un gasto en pocos pasos.
+
+Incluye:
+
+- Botones visibles para crear ingresos y gastos.
+- Formularios con etiquetas claras.
+- Campos obligatorios identificados.
+- Validaciones inmediatas.
+- Mensajes de confirmación.
+- Confirmación antes de eliminar.
+- Indicadores de carga al consultar la tasa.
+- Estados de error comprensibles.
+- Estados vacíos con mensajes útiles.
+- Filtros fáciles de usar.
+- Búsqueda rápida.
+- Formato monetario consistente.
+- Navegación accesible.
+- Buen contraste entre texto y fondo.
+- Diseño coherente entre todas las secciones.
+
+Evita ventanas emergentes innecesarias y mensajes técnicos que la usuaria no pueda entender.
+
+Los formularios deben utilizar por defecto la última tasa oficial válida cuando corresponda, pero deben indicar qué tasa se está utilizando.
+
+Si la tasa se actualiza mientras un formulario está abierto, no cambies silenciosamente la tasa de un movimiento que ya haya sido preparado. La usuaria debe poder ver y confirmar la tasa utilizada antes de guardar.
+
+# 21. SEGURIDAD, VALIDACIONES Y ERRORES
+
+Implementa validaciones para:
+
+- Importes positivos y finitos.
+- Fechas válidas.
+- Categorías existentes.
+- Tasas mayores que cero.
+- Datos obligatorios.
+- Respuestas correctas de la API.
+- Archivos JSON válidos.
+- Identificadores únicos.
+- Referencias válidas entre movimientos y categorías.
+- Valores de configuración coherentes.
+
+No permitas que una tasa inválida produzca importes incorrectos.
+
+No utilices `eval()` para procesar datos importados.
+
+Evita insertar texto proporcionado por la usuaria directamente como HTML sin escapar.
+
+Cuando ocurra un error:
+
+- No borres los datos existentes.
+- No bloquees el resto de la aplicación.
+- Muestra un mensaje comprensible.
+- Permite corregir la operación.
+- Conserva los datos válidos previamente guardados.
+
+# 22. DATOS DE EJEMPLO
+
+Incluye una opción para cargar datos de ejemplo con fines demostrativos.
+
+Los datos deben ser claramente identificables como ejemplos y pueden incluir:
+
+- Un ingreso mensual.
+- Varios gastos de distintas categorías.
+- Algunos movimientos en VES.
+- Algunos movimientos en USD.
+- Un presupuesto mensual.
+- Una meta de ahorro.
+- Algunos movimientos de ahorro.
+
+Los datos de ejemplo deben permitir apreciar el dashboard y las gráficas desde la primera ejecución.
+
+No deben presentarse como datos reales de la usuaria.
+
+Si se cargan datos de ejemplo, advierte que se incorporarán registros demostrativos y solicita confirmación cuando puedan mezclarse con datos existentes.
+
+# 23. ENTREGABLES
+
+Quiero que entregues una aplicación completa y funcional, no solamente una propuesta visual ni una maqueta.
+
+Debes proporcionar:
+
+1. El código completo de la aplicación.
+2. El archivo `index.html`.
+3. El archivo `styles.css`.
+4. El archivo `app.js`.
+5. Los archivos adicionales que realmente sean necesarios.
+6. El modelo de datos.
+7. Las funciones de cálculo financiero.
+8. La integración de la API del dólar oficial BCV.
+9. La visualización de la tasa con exactamente dos decimales.
+10. El sistema de almacenamiento en `localStorage`.
+11. Las funciones de exportación e importación JSON.
+12. Las gráficas.
+13. Los datos de ejemplo.
+14. Las instrucciones para ejecutar la aplicación.
+15. Las instrucciones para respaldar y restaurar los datos.
+16. Una explicación breve de cómo se actualiza la tasa oficial.
+17. Una explicación de las limitaciones que puedan existir con CORS o con la apertura directa mediante `file://`.
+
+Si puedes crear los archivos del proyecto, entrégalos organizados y listos para utilizar.
+
+Si no puedes entregar todos los archivos de una sola vez, divídelos por archivo y continúa hasta completar el proyecto. No omitas partes esenciales ni reemplaces el código funcional por pseudocódigo.
+
+# 24. CRITERIOS DE ACEPTACIÓN
+
+La aplicación se considerará correcta si cumple todos los requisitos esenciales siguientes:
+
+- Está diseñada para una sola chica.
+- Tiene una estética femenina, moderna, elegante y predominantemente rosada.
+- Funciona en computadoras y móviles.
+- Permite registrar ingresos en USD y VES.
+- Permite registrar gastos en USD y VES.
+- Permite editar, eliminar y buscar movimientos.
+- Permite configurar y administrar categorías.
+- Consulta la tasa oficial desde `https://dolarflow.com/api/oficial/`.
+- Utiliza `data.precio` como valor numérico de la tasa.
+- Muestra la tasa con exactamente dos decimales.
+- Presenta correctamente la equivalencia entre USD y VES.
+- Guarda la última tasa válida consultada.
+- Muestra cuándo se actualizó la tasa.
+- Maneja los errores de la API sin bloquear la aplicación.
+- Permite usar una tasa manual cuando sea necesario.
+- Distingue las tasas oficiales de las tasas manuales.
+- Conserva la tasa histórica de cada movimiento.
+- Convierte los importes en VES a USD correctamente.
+- No altera automáticamente los movimientos históricos al actualizar la tasa.
+- Permite definir presupuestos mensuales.
+- Permite administrar ahorros personales.
+- Permite establecer metas de ahorro.
+- Evita duplicar dinero al calcular ingresos, gastos, ahorros y saldos.
+- Muestra estadísticas mensuales y anuales.
+- Incluye gráficas funcionales.
+- Actualiza automáticamente los cálculos.
+- Guarda la información en `localStorage`.
+- Permite descargar un respaldo JSON completo.
+- Permite cargar un respaldo JSON válido.
+- Valida los archivos importados antes de reemplazar los datos.
+- No requiere backend ni base de datos externa.
+- No envía datos financieros personales a terceros.
+
+# 25. RESTRICCIONES IMPORTANTES
+
+- No crear módulos para parejas.
+- No crear un segundo perfil de usuario.
+- No incluir gastos compartidos ni ahorros conjuntos.
+- No utilizar una base de datos externa.
+- No implementar autenticación.
+- No enviar datos personales o financieros a servicios externos.
+- No inventar tasas oficiales.
+- No fijar la tasa de ejemplo como si fuera la actual.
+- No mostrar la tasa con cuatro, seis o más decimales: en la interfaz debe mostrarse siempre con exactamente dos.
+- No redondear prematuramente los valores internos cuando pueda afectar a los cálculos.
+- No cambiar los registros históricos al actualizar la tasa global.
+- No contabilizar los aportes a ahorro como gastos de consumo.
+- No contabilizar los retiros de ahorro como ingresos nuevos.
+- No crear botones que no funcionen.
+- No entregar solamente una maqueta estática.
+- No sacrificar la funcionalidad por el diseño visual.
+- No añadir complejidad innecesaria.
+
+# INSTRUCCIÓN FINAL
+
+Desarrolla una aplicación web de finanzas personales completa, funcional y visualmente atractiva para una sola chica, con un diseño femenino basado en tonos rosados, almacenamiento local, control de ingresos y gastos, presupuestos, ahorros, metas, estadísticas y respaldo JSON.
+
+Integra la API oficial indicada para consultar la tasa del dólar BCV, mostrando el valor como `1 USD = XXX,XX Bs`, con exactamente dos decimales en la interfaz. Conserva la precisión numérica de la tasa original para los cálculos y guarda la tasa utilizada en cada movimiento histórico.
+
+Prioriza una experiencia de usuario bonita, clara, intuitiva, responsive, privada y fácil de mantener.
+
+Antes de finalizar, revisa que todas las operaciones financieras sean coherentes, que no existan duplicidades en los cálculos, que la importación y exportación funcionen y que la consulta de la tasa tenga un manejo de errores correcto.
+
+**Entrega el proyecto completo con código real, funcional y organizado, listo para ejecutarse siguiendo las instrucciones proporcionadas.**
