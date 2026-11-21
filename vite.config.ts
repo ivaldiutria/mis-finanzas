@@ -19,6 +19,7 @@ export default defineConfig(() => {
           'pwa-512x512.png',
           'pwa-maskable-512x512.png',
           'sw-push.js',
+          'Guia_Proyecto_MisFinanzas.pdf',
         ],
         manifest: {
           id: '/',
@@ -58,7 +59,8 @@ export default defineConfig(() => {
         workbox: {
           maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
           importScripts: ['/sw-push.js'],
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+          navigateFallbackDenylist: [/\.pdf$/i],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,pdf}'],
           runtimeCaching: [
             {
               urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,

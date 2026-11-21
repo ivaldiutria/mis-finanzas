@@ -130,6 +130,7 @@ import {
   parsearJsonTasasHistoricas,
   registrarTasaDelDiaEnHistorial,
 } from './utils/historicalRatesImporter';
+import { downloadProjectGuidePdf } from './utils/projectGuidePdf';
 import {
   BudgetComparisonChart,
   CategoryDonutChart,
@@ -15628,6 +15629,29 @@ const SettingsAndBackupView: React.FC<{
                 <span>Cargar datos de ejemplo</span>
               </button>
             </div>
+          </div>
+
+          {/* Fila 3B: Documentación Técnica y Despliegue (PDF) */}
+          <div className="px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="space-y-0.5">
+              <span className="text-xs font-semibold text-[var(--text-primary)] block">
+                Documentación del Proyecto y Ejecución Independiente (.PDF)
+              </span>
+              <p className="text-[11px] text-[var(--text-secondary)]">
+                Guía completa explicando la arquitectura, módulos y cómo ejecutar esta app fuera de Gemini / AI Studio
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                downloadProjectGuidePdf();
+                showToast('Guía del proyecto descargada en formato PDF.', 'success');
+              }}
+              className="py-2 px-3.5 text-xs font-semibold text-white bg-[var(--pink-primary)] hover:bg-[var(--pink-dark)] rounded-xl transition-colors inline-flex items-center gap-1.5 self-start sm:self-auto shrink-0 cursor-pointer"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Descargar Guía PDF</span>
+            </button>
           </div>
 
           {/* Fila 4: Zona de peligro — Borrar todos los datos */}
